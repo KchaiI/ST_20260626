@@ -1,0 +1,19 @@
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars.json
+.terraform.lock.hcl
+crash.log
+override.tf
+
+# Go
+terraform/backend/bootstrap
+terraform/backend/lambda.zip
+
+# Node.js
+node_modules/
+.next/
+.env.local
+
+notes/
