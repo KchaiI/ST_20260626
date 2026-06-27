@@ -6,4 +6,24 @@ terraform {
         version = "~> 5.6.1"
     }
   }
+
+  backend "s3" {
+    bucket = "project-tfstate-dfb78a78"
+    key = "project/terraform.tfstate"
+    region = "ap-northeast-1"
+    dynamodb_table = "project-tfstate-lock"
+    encrypt = true
+  }
+}
+
+provider "aws" {
+  region = var.aws_region
+
+  default_tags {
+    tags = {
+      Project = var.project_name
+      Environment = var.Environment
+      ManagedBy = "Terraform"
+    }
+  }
 }
