@@ -6,6 +6,8 @@
 .terraform.lock.hcl
 crash.log
 override.tf
+*.tfvars
+*.tfvars.json
 
 # Go
 backend/bootstrap

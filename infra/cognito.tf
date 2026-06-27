@@ -16,8 +16,8 @@ resource "aws_cognito_user_pool" "main" {
   mfa_configuration = "ON"
 
   email_mfa_configuration {
-    message = "{####}message"
-    subject = "{####}message"
+    message = "認証コード：{####}"
+    subject = "ログイン認証コード"
   }
 
   software_token_mfa_configuration {
@@ -26,8 +26,8 @@ resource "aws_cognito_user_pool" "main" {
 
   verification_message_template {
     default_email_option = "CONFIRM_WITH_CODE"
-    email_subject        = "{####}subject"
-    email_message        = "{####}message"
+    email_subject        = "メールアドレス確認"
+    email_message        = "確認コード：{####}"
   }
 
   schema {
@@ -40,6 +40,12 @@ resource "aws_cognito_user_pool" "main" {
       min_length = 1
       max_length = 256
     }
+  }
+
+  email_configuration {
+    email_sending_account = "DEVELOPER"
+    from_email_address    = var.ses_from_email
+    source_arn            = var.ses_source_arn
   }
 }
 

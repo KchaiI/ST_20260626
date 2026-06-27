@@ -13,3 +13,11 @@ variable "environment" {
   type    = string
   default = "dev"
 }
+
+variable "ses_from_email" {
+  type = string
+}
+
+variable "ses_source_arn" {
+  type = string
+}
