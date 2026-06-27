@@ -8,8 +8,8 @@ crash.log
 override.tf
 
 # Go
-terraform/backend/bootstrap
-terraform/backend/lambda.zip
+backend/bootstrap
+backend/lambda.zip
 
 # Node.js
 node_modules/
